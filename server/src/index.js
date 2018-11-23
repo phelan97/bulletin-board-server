@@ -1,45 +1,12 @@
 const {GraphQLServer} = require('graphql-yoga');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-// const typeDefs = require('./schema.graphql');
 const Query = require('./resolvers/query');
 const Mutation = require('./resolvers/mutation');
-const User = require('./models/user');
 
 require('dotenv').config();
 
-// board(boardId: ID!): Board!
-const typeDefs = `
-type Query {
-  board(boardId: ID!): Board!
-  boards: [Board!]!
-}
-
-type Mutation {
-  signup(email: String!, password: String!): String!,
-  login(email: String!, password: String!): String!,
-  addBoard(title: String!): Board!,
-  addList(boardId: ID!, title: String!): List!,
-  addCard(listId: ID!, content: String!): Card!
-}
-
-type Board {
-  id: ID!
-  title: String!
-}
-
-type List {
-  id: ID!
-  boardId: ID!
-  title: String!
-}
-
-type Card {
-  id: ID!
-  listId: ID!
-  content: String!
-}
-`;
+const typeDefs = './src/schema.graphql';
 
 const resolvers = {
   Query,

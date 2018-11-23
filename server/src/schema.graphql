@@ -2,6 +2,10 @@
 type Query {
   board(boardId: ID!): Board!
   boards: [Board!]!
+  list(listId: ID!): List!
+  lists(boardId: ID!): [List!]!
+  card(cardId: ID!): Card!
+  cards(listId: ID!): [Card!]!
 }
 
 type Mutation {
