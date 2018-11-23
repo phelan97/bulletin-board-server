@@ -19,7 +19,7 @@ type Mutation {
   signup(email: String!, password: String!): String!,
   login(email: String!, password: String!): String!,
   addBoard(title: String!): Board!,
-  addList(boardId: ID!): List!,
+  addList(boardId: ID!, title: String!): List!,
   addCard(listId: ID!, content: String!): Card!
 }
 
