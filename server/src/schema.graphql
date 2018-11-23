@@ -1,0 +1,34 @@
+
+type Query {
+  test: String!
+}
+
+type Mutation {
+  signup(email: String!, password: String!): String!,
+  login(email: String!, password: String!): String!,
+  addBoard: Board!,
+  addList(boardId: ID!): List!,
+  addCard(listId: ID!): Card!
+}
+
+type Board {
+  id: ID!
+  title: String!
+  contents: [List!]!
+}
+
+type List {
+  id: ID!
+  title: String!
+  cards: Card!
+}
+
+type Card {
+  id: ID!
+  text: String!
+}
+
+# type Query {
+#   boards: [Board!]!
+#   board(boardId: ID!): Board!
+# }
