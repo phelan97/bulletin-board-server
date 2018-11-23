@@ -26,17 +26,17 @@ type Mutation {
 type Board {
   id: ID!
   title: String!
-  lists: [List]!
 }
 
 type List {
   id: ID!
+  boardId: ID!
   title: String!
-  cards: Card!
 }
 
 type Card {
   id: ID!
+  listId: ID!
   content: String!
 }
 `;
