@@ -11,14 +11,14 @@ require('dotenv').config();
 // board(boardId: ID!): Board!
 const typeDefs = `
 type Query {
-  board: String!
+  board(boardId: ID!): Board!
   boards: [Board!]!
 }
 
 type Mutation {
   signup(email: String!, password: String!): String!,
   login(email: String!, password: String!): String!,
-  addBoard: Board!,
+  addBoard(title: String!): Board!,
   addList(boardId: ID!): List!,
   addCard(listId: ID!, content: String!): Card!
 }
@@ -26,7 +26,7 @@ type Mutation {
 type Board {
   id: ID!
   title: String!
-  contents: [List!]!
+  lists: [List]!
 }
 
 type List {

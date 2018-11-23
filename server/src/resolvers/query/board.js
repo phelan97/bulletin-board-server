@@ -10,10 +10,10 @@ module.exports = async (root, args, context) => {
     throw('Unauthorized');
   }
 
-  const board = await Board.findOne({userId: user.id, id: args.boardId})
+  const board = await Board.findOne({userId: user.id, _id: args.boardId})
   if(!board) {
     throw('Could not find a board with the given id');
   }
-  console.log(board);
-  return 'authorized';
+
+  return board;
 };
