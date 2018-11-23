@@ -13,3 +13,5 @@ userSchema.set('toJSON', {
     return result;
   }
 });
+
+module.exports = mongoose.model('User', userSchema);
