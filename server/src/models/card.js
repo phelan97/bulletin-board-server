@@ -7,4 +7,13 @@ const cardSchema = new mongoose.Schema({
   userId: {type: ObjectId, ref: 'User', required: true}
 });
 
+cardSchema.set('toObject', {
+  versionKey: false,
+  virtuals: true,
+  transform: (doc, result) => {
+    delete result._id;
+    return result;
+  }
+});
+
 module.exports = mongoose.model('Card', cardSchema);

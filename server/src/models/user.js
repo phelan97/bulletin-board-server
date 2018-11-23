@@ -5,11 +5,12 @@ const userSchema = new mongoose.Schema({
   password: {type:String, required:true}
 });
 
-userSchema.set('toJSON', {
-  virtuals: true,
+userSchema.set('toObject', {
   versionKey: false,
+  virtuals: true,
   transform: (doc, result) => {
     delete result.password;
+    delete result._id;
     return result;
   }
 });

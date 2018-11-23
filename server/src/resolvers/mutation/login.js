@@ -8,8 +8,6 @@ module.exports = async (root, args) => {
     // username doesn't match
     throw('Invalid credentials');
   }
-  console.log(user.password);
-  console.log(args.password);
   const isMatchingPassword = await bcrypt.compare(args.password, user.password);
   if(!isMatchingPassword) {
     // invalid password for the given user

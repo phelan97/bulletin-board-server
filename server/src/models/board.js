@@ -8,4 +8,13 @@ const boardSchema = new mongoose.Schema({
   userId: {type: ObjectId, ref: 'User', required: true}
 });
 
-module.exports = mongoose.Model('Board', boardSchema);
+boardSchema.set('toObject', {
+  versionKey: false,
+  virtuals: true,
+  transform: (doc, result) => {
+    delete result._id;
+    return result;
+  }
+});
+
+module.exports = mongoose.model('Board', boardSchema);

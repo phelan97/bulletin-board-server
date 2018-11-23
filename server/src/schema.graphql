@@ -1,6 +1,7 @@
 
 type Query {
-  test: String!
+  board(boardId: ID!): Board!
+  boards: [Board!]!
 }
 
 type Mutation {
@@ -8,7 +9,7 @@ type Mutation {
   login(email: String!, password: String!): String!,
   addBoard: Board!,
   addList(boardId: ID!): List!,
-  addCard(listId: ID!): Card!
+  addCard(listId: ID!, content: String!): Card!
 }
 
 type Board {
@@ -25,10 +26,5 @@ type List {
 
 type Card {
   id: ID!
-  text: String!
+  content: String!
 }
-
-# type Query {
-#   boards: [Board!]!
-#   board(boardId: ID!): Board!
-# }

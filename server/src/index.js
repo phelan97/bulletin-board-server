@@ -1,16 +1,18 @@
 const {GraphQLServer} = require('graphql-yoga');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-
 // const typeDefs = require('./schema.graphql');
 const Query = require('./resolvers/query');
 const Mutation = require('./resolvers/mutation');
+const User = require('./models/user');
 
 require('dotenv').config();
 
+// board(boardId: ID!): Board!
 const typeDefs = `
 type Query {
-  test: String!
+  board: String!
+  boards: [Board!]!
 }
 
 type Mutation {
@@ -18,7 +20,7 @@ type Mutation {
   login(email: String!, password: String!): String!,
   addBoard: Board!,
   addList(boardId: ID!): List!,
-  addCard(listId: ID!): Card!
+  addCard(listId: ID!, content: String!): Card!
 }
 
 type Board {
@@ -35,7 +37,7 @@ type List {
 
 type Card {
   id: ID!
-  text: String!
+  content: String!
 }
 `;
 

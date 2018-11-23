@@ -9,4 +9,13 @@ const listSchema = new mongoose.Schema({
   userId: {type: ObjectId, ref: 'User', requied: true}
 });
 
+listSchema.set('toObject', {
+  versionKey: false,
+  virtuals: true,
+  transform: (doc, result) => {
+    delete result._id;
+    return result;
+  }
+});
+
 module.exports = mongoose.model('List', listSchema);
