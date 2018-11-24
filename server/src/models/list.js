@@ -8,6 +8,10 @@ const listSchema = new mongoose.Schema({
   userId: {type: ObjectId, ref: 'User', required: true}
 });
 
+listSchema.virtual('id').get(function () {
+  return this._id.toString();
+});
+
 listSchema.set('toObject', {
   versionKey: false,
   virtuals: true,

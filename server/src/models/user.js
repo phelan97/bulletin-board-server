@@ -15,4 +15,28 @@ userSchema.set('toObject', {
   }
 });
 
+userSchema.virtual('id').get(function () {
+  return this._id.toString();
+});
+
+userSchema.set('toObject', {
+  versionKey: false,
+  virtuals: true,
+  transform: (doc, result) => {
+    delete result.password;
+    delete result._id;
+    return result;
+  }
+});
+
+userSchema.set('toJSON', {
+  versionKey: false,
+  virtuals: true,
+  transform: (doc, result) => {
+    delete result.password;
+    delete result._id;
+    return result;
+  }
+});
+
 module.exports = mongoose.model('User', userSchema);

@@ -8,6 +8,10 @@ const cardSchema = new mongoose.Schema({
   userId: {type: ObjectId, ref: 'User', required: true}
 });
 
+cardSchema.virtual('id').get(function () {
+  return this._id.toString();
+});
+
 cardSchema.set('toObject', {
   versionKey: false,
   virtuals: true,

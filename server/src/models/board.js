@@ -7,6 +7,10 @@ const boardSchema = new mongoose.Schema({
   userId: {type: ObjectId, ref: 'User', required: true}
 });
 
+boardSchema.virtual('id').get(function () {
+  return this._id.toString();
+});
+
 boardSchema.set('toObject', {
   versionKey: false,
   virtuals: true,
