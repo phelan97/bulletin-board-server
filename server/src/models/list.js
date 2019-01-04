@@ -17,6 +17,8 @@ listSchema.set('toObject', {
   virtuals: true,
   transform: (doc, result) => {
     delete result._id;
+    result.boardId = result.boardId.toString();
+    result.userId = result.userId.toString();
     return result;
   }
 });

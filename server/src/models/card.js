@@ -17,6 +17,8 @@ cardSchema.set('toObject', {
   virtuals: true,
   transform: (doc, result) => {
     delete result._id;
+    result.listId = result.listId.toString();
+    result.userId = result.userId.toString();
     return result;
   }
 });
