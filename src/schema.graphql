@@ -13,7 +13,11 @@ type Mutation {
   login(email: String!, password: String!): String!,
   addBoard(title: String!): Board!,
   addList(boardId: ID!, title: String!): List!,
-  addCard(listId: ID!, content: String!): Card!
+  addCard(listId: ID!, content: String!): Card!,
+  removeBoard(boardId: ID!): ID!,
+  removeList(listId: ID!): ID!,
+  removeCard(cardId: ID!): ID!,
+  editCard(cardId: ID!, content: String!): Card!
 }
 
 type Board {
