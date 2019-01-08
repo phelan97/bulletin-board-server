@@ -1,4 +1,4 @@
-const List = require('../../models/board');
+const List = require('../../models/list');
 const mongoose = require('mongoose');
 
 module.exports = async (root, args, context) => {
