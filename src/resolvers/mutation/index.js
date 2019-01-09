@@ -7,6 +7,7 @@ const removeBoard = require('./removeBoard');
 const removeList = require('./removeList');
 const removeCard = require('./removeCard');
 const editCard = require('./editCard');
+const editList = require('./editList');
 
 module.exports = { signup, login, addBoard, addList, addCard,
-  removeBoard, removeList, removeCard, editCard};
+  removeBoard, removeList, removeCard, editCard, editList};

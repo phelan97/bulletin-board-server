@@ -18,6 +18,7 @@ type Mutation {
   removeList(listId: ID!): ID!,
   removeCard(cardId: ID!): ID!,
   editCard(cardId: ID!, content: String!): Card!
+  editList(listId: ID!, title: String!): List!
 }
 
 type Board {
