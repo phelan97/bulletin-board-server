@@ -6,6 +6,7 @@ type Query {
   lists(boardId: ID!): [List!]!
   card(cardId: ID!): Card!
   cards(listId: ID!): [Card!]!
+  demoAccount: String!
 }
 
 type Mutation {
