@@ -3,10 +3,8 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const Query = require('./resolvers/query');
 const Mutation = require('./resolvers/mutation');
-
-require('dotenv').config();
-
 const typeDefs = './src/schema.graphql';
+const {DATABASE_URL, DATABASE_NAME} = require('../config');
 
 const resolvers = {
   Query,
@@ -31,6 +29,6 @@ const server = new GraphQLServer({
 });
 
 if(require.main === module) {
-  mongoose.connect('mongodb://localhost/trello-clone');
+  mongoose.connect(DATABASE_URL, {dbName: DATABASE_NAME});
   server.start(() => console.log('Server started'));
 }
