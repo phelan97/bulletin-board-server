@@ -9,6 +9,8 @@ const removeCard = require('./removeCard');
 const editCard = require('./editCard');
 const editList = require('./editList');
 const moveCard = require('./moveCard');
+const renameBoard = require('./renameBoard');
 
-module.exports = { signup, login, addBoard, addList, addCard,
+module.exports = {
+  signup, login, addBoard, addList, addCard, renameBoard,
   removeBoard, removeList, removeCard, editCard, editList, moveCard};
